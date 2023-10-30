@@ -26,6 +26,15 @@ def ingest_docs()->None:
         new_url = old_path.replace('langchain-docs\latest', "https:/")
         doc.metadata.update({"source": new_url})
 
+    # for windows
+    # for doc in documents:
+    #     old_path = doc.metadata["source"]
+    #     replace_path = os.path.join('langchain-docs\latest', "langchain-docs")
+    #     new_url = old_path.replace(replace_path, "https:/")
+    #     # if url contains '\' replace with '/' (fixes windows path issue)
+    #     new_url = new_url.replace("\\", "/")
+    #     doc.metadata.update({"source": new_url})
+
     print(f'going to insert {len(documents)} to Pinecone')
 
     embeddings = OpenAIEmbeddings()
